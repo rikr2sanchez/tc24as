@@ -1,0 +1,7 @@
+<ngb-rating  [(rate)]="currentRate" [starTemplate]=starT [max]=5>
+  <ng-template let-fill="fill" let-index="index" #starT>
+    <div [class.filled]="fill ===100">&nbsp;</div>
+  </ng-template>
+</ngb-rating>
+
+

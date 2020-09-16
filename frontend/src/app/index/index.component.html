@@ -1,0 +1,22 @@
+<div class="starter-template text-center">
+  <div class="col-sm-12">
+    <img src="assets/img/TrueCare24_logo.svg" width="150px" />
+  </div>
+  <div class="clearfix"></div>
+  <br />
+  <h1>TrueCare24 Assesstment Test</h1>
+  <br />
+  <nav class="before-login-link-wrapper my-0" *ngIf="userService.isLoggedIn() === false">
+    <a class="btn btn-outline-success mr-2 link-login" routerLinkActive="active" [routerLink]="['/login']">Login</a>
+    <a class="btn btn-outline-primary link-signup" routerLinkActive="active" [routerLink]="['/signup']">Sign up</a>
+  </nav>
+  <nav class="after-login-link-wrapper my-0" *ngIf="userService.isLoggedIn() === true">
+    <span class="text-dark mr-2 font-weight-bold text-username">{{ userData.username }} ({{ userData.roleLabel }})</span>
+    <a class="btn btn-link mr-2 link-account" routerLinkActive="active" [routerLink]="['/account']">Account</a>
+    <a class="btn btn-link link-logout" routerLinkActive="active" [routerLink]="['/logout']">Logout</a>
+  </nav>
+  <p class="lead">
+<!--    Use this document as a way to quickly start any new project. <br />-->
+<!--    All you get is this text and a mostly barebones HTML document.-->
+  </p>
+</div>

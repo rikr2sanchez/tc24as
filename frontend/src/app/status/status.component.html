@@ -1,0 +1,34 @@
+<td class="status-td">
+<div class="row dropdown">
+
+  <img class="mr-2 mt-n1" [src]=icon>
+  <label class="mt-2 status-btn" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" style="border-bottom: 1.5pt dashed #dce2e6; text-decoration: none;">{{getOptionValue(getSelected())}}</label>
+
+  <div class="dropdown-menu shadow-lg my-1 py-0" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-item px-3" href="#" (click)="setSelected('contacting')">
+      <img class="mr-3 mt-n1" [src]=contactingLogo>
+      <label style="line-height: 30px">{{getOptionValue('contacting')}}</label>
+    </div>
+    <hr class="solid my-0 py-0">
+    <div class="dropdown-item px-3" href="#" (click)="setSelected('talked')">
+      <img class="mr-3 mt-n1" [src]=talkedLogo>
+      <label style="line-height: 30px">{{getOptionValue('talked')}}</label>
+    </div>
+    <hr class="solid my-0 py-0">
+    <div class="dropdown-item px-3" href="#" (click)="setSelected('scheduled')">
+      <img class="mr-3 mt-n1" [src]=scheduledLogo>
+      <label style="line-height: 30px">{{getOptionValue('scheduled')}}</label>
+    </div>
+    <hr class="solid my-0 py-0">
+    <div class="dropdown-item px-3" href="#" (click)="setSelected('signed')">
+      <img class="mr-3 mt-n1" [src]=signedLogo>
+      <label style="line-height: 30px">{{getOptionValue('signed')}}</label>
+    </div>
+    <hr class="solid my-0 py-0">
+    <div class="dropdown-item px-3" href="#" (click)="setSelected('cancel')">
+      <img class="mr-3 mt-n1" [src]=cancelLogo>
+      <label style="line-height: 30px">{{getOptionValue('cancel')}}</label>
+    </div>
+  </div>
+</div>
+</td>

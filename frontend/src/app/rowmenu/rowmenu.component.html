@@ -1,0 +1,50 @@
+<div class="dropdown">
+
+  <div class="menu-btn mt-2 status-btn" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">&nbsp;</div>
+
+  <div class="dropdown-menu shadow-lg my-1 py-0" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-item px-3" href="#">
+      <label style="line-height: 30px">Send intro</label>
+    </div>
+    <div class="dropdown-item px-3" href="#">
+      <label (click)="openModal(feedbackmodal)" style="line-height: 30px">Provide feedback</label>
+    </div>
+    <div class="dropdown-item px-3" href="#">
+      <label style="line-height: 30px">Send reminder</label>
+    </div>
+    <div class="dropdown-item px-3" href="#">
+      <label style="line-height: 30px">Background check</label>
+    </div>
+  </div>
+</div>
+
+<ng-template #feedbackmodal let-modal class="row">
+  <div>
+    <div class="modal-header">
+      <label class="modal-title">Set the rating and provide the feedback note:</label>
+      <button class="x" type="button" class="close" aria-label="Close">
+        <span  aria-hidden="true" (click)="modal.dismiss()">×</span>
+      </button>
+
+    </div>
+    <div class="row">
+      <div class="col ml-3">
+        <app-rating></app-rating>
+      </div>
+    </div>
+    <div class="modal-body">
+      <textarea class="fbtext p-3" placeholder="Type here"></textarea>
+    </div>
+
+    <div class="modal-footer mt-0 pt-0">
+
+      <div class="row" style="position: relative; width: 100%">
+        <div class="img-wrap">
+          <img class="chat-btn" src="assets/img/Button.svg">
+          <label class="chat-btn-txt ml-5">SAVE</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
