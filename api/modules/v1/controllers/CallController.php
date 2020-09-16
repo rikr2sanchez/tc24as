@@ -2,8 +2,12 @@
 
 namespace app\modules\v1\controllers;
 
+use Yii;
 use yii\rest\Controller;
-use Twilio\Twiml;
+
+use yii\web\Response;
+use Twilio\Rest\Client;
+use Twilio\TwiML\VoiceResponse;
 
 class CallController extends Controller {
 
@@ -12,15 +16,35 @@ class CallController extends Controller {
      *
      * return $string
      */
-    public function actionNotify() {
+    public function actionIndex() {
+//         Your Account SID and Auth Token from twilio.com/console
+//        $account_sid = 'AC27b919b20f36e2831a2d349bfbccf3f0';
+//        $auth_token = 'd4c94170174f4b0ab4203f39e76930e3';
+//// In production, these should be environment variables. E.g.:
+//// $auth_token = $_ENV["TWILIO_ACCOUNT_SID"]
+//
+//// A Twilio number you own with Voice capabilities
+//        $twilio_number = "+18174096444";
+//
+//// Where to make a voice call (your cell phone?)
+//        $to_number = "+52 55 3453 0087";
+//
+//        $client = new Client($account_sid, $auth_token);
 
-        $order_number  = "ORDER0001";
-        $customer_name = "RICARDO SANCHEZ";
-        $response      = new Twiml();
-        $response->say( 'Hello, you have a new customer order from ' . $customer_name . ' reference ' . $order_number . '. Please check your merchant app or control panel for order details. Press 1 to confirm this message.' );
+        $response = new VoiceResponse();
 
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_XML;
+        $response->say('Hello');
 
-        echo $response;
+        $response->play('https://api.twilio.com/cowbell.mp3', ['loop' => 5]);
+
+        return $response;
+
+//        $client->account->calls->create(
+//            $to_number,
+//            $twilio_number,
+//            array(
+//                "url" => getenv("API_HOST").":8888/playwait"
+//            )
+//        );
     }
 }

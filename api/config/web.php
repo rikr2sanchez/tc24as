@@ -1,5 +1,6 @@
 <?php
 
+//require __DIR__ . '/../vendor/twilio/sdk/src/Twilio/autoload.php';
 $params = include __DIR__ . '/params.php';
 
 $config = [
@@ -14,7 +15,7 @@ $config = [
         'request' => [
             'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
             'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
+                'application/json' => 'yii\web\JsonParser'
             ],
         ],
         'cache' => [
@@ -42,6 +43,7 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+            'maxSourceLines' => 20,
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -65,10 +67,12 @@ $config = [
             'baseUrl' => '/api',    // Added for
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'enableStrictParsing' => true,
+//            'enableStrictParsing' => true,
             'rules' => [
                 'ping' => 'site/ping',
-                'notify' => 'site/notify',
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/call',
+                ],
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/user',
@@ -139,9 +143,16 @@ $config = [
             'class' => 'yii\web\Response',
             'on beforeSend' => function ($event) {
                 $response = $event->sender;
+
+                if ($response->format == 'xml') {
+                    return $response;
+                }
+
                 if ($response->format == 'html') {
                     return $response;
                 }
+
+
 
                 $responseData = $response->data;
 

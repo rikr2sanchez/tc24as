@@ -30,18 +30,9 @@ services:
       - .env
     ports: 
       - 8888:80
+      - 8889:9000
     # volumes:
     #   - ./api:/srv
-
-  ngrok:
-    container_name: ngrok
-    image: shkoliar/ngrok:latest
-    networks:
-      - internal
-    ports:
-      - 4551:4551
-    links:
-      - nginx
 
   backend:
     container_name: backend

@@ -70,6 +70,7 @@ RUN mkdir /srv/runtime \
     && chown -R www-data:www-data /srv/
 
 EXPOSE 80
+EXPOSE 9000
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
