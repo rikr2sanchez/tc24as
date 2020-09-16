@@ -5,8 +5,6 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
-use Twilio\Rest\Client;
-use Twilio\TwiML\VoiceResponse;
 
 class SiteController extends Controller
 {
