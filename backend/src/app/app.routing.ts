@@ -31,6 +31,10 @@ export const routes: Routes = [
         loadChildren: 'app/user/user.module#UserModule'
       },
       {
+        path: 'matched-provider',
+        loadChildren: 'app/matched_provider/matched_provider.module#MatchedProviderModule'
+      },
+      {
         path: 'setting',
         loadChildren: 'app/setting/setting.module#SettingModule'
       }

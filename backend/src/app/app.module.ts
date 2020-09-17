@@ -24,6 +24,7 @@ import { StaffService } from './model/staff.service';
 import { UserDataService } from './model/user-data.service';
 import { P404Component } from './page/404.component';
 import { SharedModule } from './shared/shared.module';
+import { MatchedProviderDataService } from './model/matched_provider-data.service';
 
 export function tokenGetter() {
   return localStorage.getItem(environment.tokenName);
@@ -54,7 +55,8 @@ export function tokenGetter() {
     StaffDataService,
     GlobalService,
     SettingDataService,
-    UserDataService
+    UserDataService,
+    MatchedProviderDataService
   ],
   bootstrap: [AppComponent]
 })

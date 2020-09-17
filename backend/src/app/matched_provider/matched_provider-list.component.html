@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">
+    Matched Providers
+    <ng-container *ngIf="loading">
+      <app-spinner></app-spinner>
+    </ng-container>
+  </h1>
+</div>
+
+<div class="row" *ngIf="errorMessage">
+  <div class="col-sm-12">
+    <p class="alert alert-danger">{{ errorMessage }}</p>
+  </div>
+</div>
+
+<div *ngIf="matchedProviderList">
+  <div class="row mb-2">
+    <div class="col-12"><strong>Total Count:</strong> {{ totalCount }}</div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-striped table-bordered table-valign-middle">
+      <thead>
+        <tr>
+          <th class="text-center">#</th>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Email Address</th>
+          <th>Phone</th>
+          <th>_ID</th>
+          <th>Status</th>
+          <th width="20%" class="text-center">Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mp of matchedProviderList.rows">
+          <td class="text-center">
+            {{ mp.row_num }}
+          </td>
+          <td>
+            {{ mp.type }}
+          </td>
+          <td>
+            {{ mp.name }}
+          </td>
+          <td>
+            {{ mp.email }}
+          </td>
+          <td>
+            {{ mp.phone }}
+          </td>
+          <td>
+            {{ mp._ID }}
+          </td>
+          <td>
+            {{ mp.status }}
+          </td>
+          <td class="text-center">
+            <div>
+              <button class="btn btn-secondary btn-sm" type="button" (click)="viewMatchedProvider(mp)">
+                <i class="fa fa-edit"></i> Edit
+              </button>
+              &nbsp;
+              <button class="btn btn-danger btn-sm" type="button" (click)="confirmDeleteMatchedProvider(mp)">
+                <i class="fa fa-remove"></i> Remove
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-8">
+      <pagination
+        [totalItems]="totalCount"
+        [(ngModel)]="currentPage"
+        [boundaryLinks]="true"
+        [directionLinks]="true"
+        [maxSize]="5"
+        [itemsPerPage]="pageSize"
+        (pageChanged)="pageChanged($event)"
+      ></pagination>
+    </div>
+    <div class="col-12 col-sm-4 text-right">
+      <a class="btn btn-primary ml-1" [routerLink]="['/matched-provider', 'create']" routerLinkActive="active"
+        ><i class="fa fa-plus-square"></i> Create New Matched Provider</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6"></div>
+    <div class="col-12 col-sm-6 text-right">
+      <form class="form-inline float-right" (ngSubmit)="onSearchFormSubmit()" novalidate>
+        <input type="text" class="form-control" id="search-q" placeholder="" [(ngModel)]="searchParams['q']" name="q" />
+        <button class="btn btn-info ml-1" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+      </form>
+    </div>
+  </div>
+</div>
