@@ -115,7 +115,7 @@ export class MatchedProviderService {
   }
 
   // GET /v1/matched-provider/1
-  getUserById(id: number): Observable<MatchedProvider> {
+  getMatchedProviderById(id: number): Observable<MatchedProvider> {
     const headers = GlobalService.getHeaders();
 
     return this.http
