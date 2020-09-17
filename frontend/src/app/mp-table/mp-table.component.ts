@@ -1,5 +1,9 @@
 import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
+import { MatchedProviderService } from '../model/matched_provider.service';
+import { MatchedProvider } from '../model/matched_provider';
+import { MatchedProviderList } from '../model/matched_provider-list';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mp-table',
@@ -8,10 +12,13 @@ import {DOCUMENT} from '@angular/common';
 })
 export class MpTableComponent implements OnInit, AfterViewInit{
 
-  constructor(@Inject(DOCUMENT) document) { }
+  mplist$: Observable<MatchedProviderList>;
+
+  constructor(@Inject(DOCUMENT) document, private mpservice: MatchedProviderService) { }
 
 
   ngOnInit(): void {
+    this.mplist$ =  this.mpservice.getAllMatchedProviders();
   }
 
   ngAfterViewInit(): void {

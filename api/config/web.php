@@ -128,6 +128,14 @@ $config = [
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/matched_provider',
+                    'pluralize' => false,
+                    'tokens' => [
+                        '{id}' => '<id:\d+>',
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/page',
                     'pluralize' => false,
                     'tokens' => [
@@ -151,8 +159,6 @@ $config = [
                 if ($response->format == 'html') {
                     return $response;
                 }
-
-
 
                 $responseData = $response->data;
 

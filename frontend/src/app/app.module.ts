@@ -30,6 +30,7 @@ import { RowmenuComponent } from './rowmenu/rowmenu.component';
 import { RatingComponent } from './rating/rating.component';
 import { MatchedProvidersModule } from './matched-providers/matched-providers.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatchedProviderService } from './model/matched_provider.service';
 
 export function jwtOptionsFactory(localStorage) {
   return {
@@ -73,7 +74,8 @@ export function jwtOptionsFactory(localStorage) {
     AuthGuard,
     UserService,
     GlobalService,
-    UserDataService
+    UserDataService,
+    MatchedProviderService
   ],
   bootstrap: [AppComponent]
 })

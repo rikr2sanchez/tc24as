@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchedProviderService } from '../model/matched_provider.service';
 
 @Component({
   selector: 'app-matched-providers',
@@ -10,6 +11,7 @@ export class MatchedProvidersComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

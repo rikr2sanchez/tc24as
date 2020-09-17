@@ -7,7 +7,7 @@
     </div>
     <div class="row px-3">
 
-      <table class="col">
+      <table class="col" *ngIf="mplist$ | async as mplist">
         <thead>
         <tr>
           <th scope="col" class="pl-3 py-1" style="width: 100px">Type</th>
@@ -21,7 +21,8 @@
           <th scope="col" class="py-1" style="width: 20px;">&nbsp;</th>
         </tr>
         </thead>
-        <tr *ngFor="let i of [1, 2]" id="{{'tr' + i}}">
+
+        <tr *ngFor="let mp of mplist.rows" id="{{'tr' + mp.id}}">
           <td class="pl-3">
             <div class="row">
               <div class="col pr-0 mr-4 mt-n1" style="max-width: 14px; max-height: 18px">
@@ -33,11 +34,11 @@
             </div>
 
           </td>
-          <td class="nametd" style="min-width: 100px">Lucile Munoz Gonzales</td>
-          <td style="min-width: 200px">oceane.torp@brennan.us</td>
-          <td style="min-width: 50px; max-width: 60px">+1 (727) 809-1639</td>
-          <td style="width: 60px">7589</td>
-          <app-status [idx]=i (idxo)="setCanceled($event)" class="row" style="min-width: 120px"></app-status>
+          <td class="nametd" style="min-width: 100px">{{mp.name}}</td>
+          <td style="min-width: 200px">{{mp.email}}</td>
+          <td style="min-width: 50px; max-width: 60px">{{mp.phone}}</td>
+          <td style="width: 60px">{{mp._ID}}</td>
+          <app-status [idx]=mp.id (idxo)="setCanceled($event)" class="row" style="min-width: 120px"></app-status>
           <td>
             <div style="position: relative">
               <div class="img-wrap">
