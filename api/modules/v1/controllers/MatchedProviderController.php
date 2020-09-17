@@ -203,7 +203,7 @@ class MatchedProviderController extends ActiveController
     {
         $model = $this->actionView($id);
 
-        if ($model->save(false) === false) {
+        if ($model->delete() === false) {
             throw new ServerErrorHttpException('Failed to delete the object for unknown reason.');
         }
 
