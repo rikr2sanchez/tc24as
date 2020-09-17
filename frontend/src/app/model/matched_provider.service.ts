@@ -42,54 +42,6 @@ export class MatchedProviderService {
     ];
   }
 
-  // POST /v1/matched-provider
-  // addMatchedProvider(mp: MatchedProvider): Observable<any> {
-  //   const headers = GlobalService.getHeaders();
-  //
-  //   return this.http
-  //     .post<ResponseBody>(this.globalService.apiHost + '/matched-provider', JSON.stringify(mp), {
-  //       headers
-  //     })
-  //     .pipe(
-  //       map(response => {
-  //         return response;
-  //       }),
-  //       catchError(err => GlobalService.handleError(err))
-  //     );
-  // }
-
-  // DELETE /v1/matched-provider/1
-  // deleteMatchedProviderById(id: number): Observable<any> {
-  //   const headers = GlobalService.getHeaders();
-  //
-  //   return this.http
-  //     .delete<ResponseBody>(this.globalService.apiHost + '/matched-provider/' + id, {
-  //       headers
-  //     })
-  //     .pipe(
-  //       map(response => {
-  //         return response;
-  //       }),
-  //       catchError(err => GlobalService.handleError(err))
-  //     );
-  // }
-
-  // PUT /v1/matched-provider//1
-  // updateUserById(mp: MatchedProvider): Observable<any> {
-  //   const headers = GlobalService.getHeaders();
-  //
-  //   return this.http
-  //     .put<ResponseBody>(this.globalService.apiHost + '/matched-provider/' + mp.id, JSON.stringify(mp), {
-  //       headers
-  //     })
-  //     .pipe(
-  //       map(response => {
-  //         return response;
-  //       }),
-  //       catchError(err => GlobalService.handleError(err))
-  //     );
-  // }
-
   // GET /v1/matched-provider
   getAllMatchedProviders(extendedQueries?: any): Observable<MatchedProviderList> {
     const headers = GlobalService.getHeaders();

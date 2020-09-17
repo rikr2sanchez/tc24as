@@ -104,7 +104,7 @@ class MatchedProvider extends \yii\db\ActiveRecord
             [
                 'phone',
                 'match',
-                'pattern' => '/[^0-9+-]/',
+                'pattern' => '/^(?:00|\+)([0-9]|\-)+$/',
                 'message' => Yii::t(
                     'app',
                     'Phone can only contain numeric characters and symbols +-'

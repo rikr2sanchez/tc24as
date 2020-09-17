@@ -30,9 +30,9 @@ export class MpTableComponent implements OnInit, AfterViewInit{
     if (i < 0){
       const idx = -1 * i;
       if (idx % 2 === 0 ){
-        el.style.background = '#f4f7f9';
-      }else{
         el.style.background = 'white';
+      }else{
+        el.style.background = '#f4f7f9';
       }
     } else {
       el.style.background = '#fbe8ec';
