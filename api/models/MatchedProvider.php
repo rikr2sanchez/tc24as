@@ -100,7 +100,7 @@ class MatchedProvider extends \yii\db\ActiveRecord
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'string', 'length' => [3, 15]],
+            ['email', 'string', 'length' => [3, 50]],
             [
                 'phone',
                 'match',
