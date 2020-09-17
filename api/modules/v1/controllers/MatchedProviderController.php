@@ -178,7 +178,7 @@ class MatchedProviderController extends ActiveController
      */
     public function actionView($id)
     {
-        $mp = User::find()->where(
+        $mp = MatchedProvider::find()->where(
             [
                 'id' => $id
             ]
