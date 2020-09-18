@@ -245,6 +245,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'username' => Yii::t('app', 'Username'),
+            'phone_number' => Yii::t('app', 'Phone'),
             'email' => Yii::t('app', 'Email'),
             'registration_ip' => Yii::t('app', 'Registration ip'),
             'unconfirmed_email' => Yii::t('app', 'New email'),
@@ -273,6 +274,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         $fields = [
             'id',
             'username',
+            'phone_number',
             'email',
             'unconfirmed_email',
             'role',
@@ -394,6 +396,16 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
                 )
             ],
             ['username', 'validateUsername'],
+            ['phone_number', 'required'],
+            [
+                'phone_number',
+                'match',
+                'pattern' => '/^(?:00|\+)([0-9]|\-)+$/',
+                'message' => Yii::t(
+                    'app',
+                    'Phone can only contain numeric characters and symbols +-'
+                )
+            ],
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],

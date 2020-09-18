@@ -412,6 +412,7 @@ class UserController extends ActiveController
 
             return [
                 'username' => $user->username,
+                'phone_number' => $user->phone_number,
                 'email' => $user->email,
                 'last_login_at' => $user->last_login_at,
                 'last_login_ip' => $user->last_login_ip,
