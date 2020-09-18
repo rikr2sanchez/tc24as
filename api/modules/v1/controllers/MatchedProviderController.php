@@ -90,7 +90,7 @@ class MatchedProviderController extends ActiveController
                 ],
                 [
                     'allow' => true,
-                    'actions' => ['index', 'view'],
+                    'actions' => ['index', 'view', 'update'],
                     'roles' => ['user']
                 ]
             ],

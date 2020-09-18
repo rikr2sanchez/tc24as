@@ -38,5 +38,6 @@ class CallController extends Controller
                 'url' => $twiml_url
             ]
         );
+        return $twiml_url;
     }
 }
