@@ -82,4 +82,19 @@ export class MatchedProviderService {
       );
   }
 
+  // PUT /v1/matched-provider//1
+  updateMatchedProviderById(mp: MatchedProvider): Observable<any> {
+    const headers = GlobalService.getHeaders();
+
+    return this.http
+      .put<ResponseBody>(this.globalService.apiHost + '/matched-provider/' + mp.id, JSON.stringify(mp), {
+        headers
+      })
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(err => GlobalService.handleError(err))
+      );
+  }
 }

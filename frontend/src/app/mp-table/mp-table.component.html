@@ -7,60 +7,78 @@
     </div>
     <div class="row px-3">
 
-      <table class="col" *ngIf="mplist$ | async as mplist">
-        <thead>
-        <tr>
-          <th scope="col" class="pl-3 py-1" style="width: 100px">Type</th>
-          <th scope="col" class="py-1" style="min-width: 100px;">Name</th>
-          <th scope="col" class="py-1" style="min-width: 200px">Email</th>
-          <th scope="col" class="py-1" style="min-width: 50px; max-width: 60px">Phone</th>
-          <th scope="col" class="py-1" style="width: 90px">ID</th>
-          <th scope="col" class="py-1" style="min-width: 120px">Status</th>
-          <th scope="col" class="py-1" style="width: 80px;">&nbsp;</th>
-          <th scope="col" class="py-1" style="width: 80px;">&nbsp;</th>
-          <th scope="col" class="py-1" style="width: 20px;">&nbsp;</th>
-        </tr>
-        </thead>
+      <div class="table-responsive" *ngIf="mplist$ | async as mplist">
+        <table class="table table-sm table-striped table-borderless table-valign-middle">
+          <thead>
+          <tr>
+            <th class="pl-3">Type</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>ID</th>
+            <th>Status</th>
+            <th width="20%" class="text-center"></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let mp of mplist.rows" [class.canceled]="mp.status === 4">
+            <td class="align-middle">
+              <div class="container">
+                <div class="row justify-content-start">
+                  <div class="col-md-3">
+                    <img *ngIf="mp.type.split(',')[0]==='0'" src="assets/img/Contracted.svg">
+                    <img *ngIf="mp.type.split(',')[0]==='1'" src="assets/img/Non%20Contracted.svg">
+                  </div>
+                  <div class="col-md-3">
+                    <img *ngIf="mp.type.split(',')[1]==='2'" src="assets/img/IC.svg">
+                    <img *ngIf="mp.type.split(',')[1]==='3'" src="assets/img/Home%20care%20agency.svg">
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="align-middle">
+              {{mp.name}}
+            </td>
+            <td class="align-middle">
+              {{mp.email}}
+            </td>
+            <td class="align-middle">
+              {{mp.phone}}
+            </td>
+            <td class="align-middle">
+              {{mp._ID}}
+            </td>
+            <td class="align-middle">
+              <app-status [mp]="mp" style="min-width: 120px"></app-status>
+            </td>
+            <td class="text-center align-middle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="img-wrap">
+                      <img src="assets/img/Chat.svg">
+                      <label class="chat-btn-txt">CHAT</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="img-wrap">
+                      <img src="assets/img/ChatG.svg">
+                      <label class="chat-btn-txt" (click)="callMatchedProvider(mp)">CALL</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <tr *ngFor="let mp of mplist.rows" id="{{'tr' + mp.id}}">
-          <td class="pl-3">
-            <div class="row">
-              <div class="col pr-0 mr-4 mt-n1" style="max-width: 14px; max-height: 18px">
-                <img src="assets/img/Contracted.svg">
-              </div>
-              <div class="col mt-n1" style="max-width: 14px; max-height: 18px">
-                <img src="assets/img/IC.svg">
-              </div>
-            </div>
+            </td>
+            <td class="align-middle">
+              <app-rowmenu></app-rowmenu>
+            </td>
 
-          </td>
-          <td class="nametd" style="min-width: 100px">{{mp.name}}</td>
-          <td style="min-width: 200px">{{mp.email}}</td>
-          <td style="min-width: 50px; max-width: 60px">{{mp.phone}}</td>
-          <td style="width: 60px">{{mp._ID}}</td>
-          <app-status [idx]=mp.id (idxo)="setCanceled($event)" class="row" style="min-width: 120px"></app-status>
-          <td>
-            <div style="position: relative">
-              <div class="img-wrap">
-                <img class="chat-btn" src="assets/img/Chat.svg">
-                <label class="chat-btn-txt">CHAT</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div style="position: relative">
-              <div class="img-wrap">
-                <img class="chat-btn" src="assets/img/ChatG.svg">
-                <label class="chat-btn-txt" (click)="callMatchedProvider(mp)">CALL</label>
-              </div>
-            </div>
-          </td>
-          <td >
-            <app-rowmenu></app-rowmenu>
-          </td>
-        </tr>
-      </table>
-
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

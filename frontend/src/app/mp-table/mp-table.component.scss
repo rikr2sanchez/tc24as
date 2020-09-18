@@ -11,9 +11,9 @@
   color: $nav-label-text;
 }
 
-table {
-  table-layout: fixed;
-}
+//table {
+//  table-layout: fixed;
+//}
 
 th {
   font-family: 'Lato', sans-serif;
@@ -40,12 +40,20 @@ tr:nth-child(odd) {background-color: $table-dark-row;}
 }
 
 .img-wrap {
+  position: relative;
   width: 60px;
 }
 
 .chat-btn-txt {
+  position: absolute;
+  left: 0px;
   width: 60px;
+  margin-bottom: 0;
   height: 30px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  line-height: 30px;
 }
 
 .chat-btn-txt:hover {
@@ -55,16 +63,21 @@ tr:nth-child(odd) {background-color: $table-dark-row;}
 }
 
 
-.chat-btn-txt {
-  position: absolute;
-  text-align: center;
-  right: 18px;
-  color: white;
-  font-weight: 700;
-  line-height: 30px;
-}
-
 .status-td {
   cursor: pointer;
 }
 
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even) {
+  background-color: $table-dark-row;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd) {
+  background-color: white;
+}
+
+.table-striped>tbody>tr.canceled>td,
+.table-striped>tbody>tr.canceled {
+  background-color: $table-cancel-row;
+}

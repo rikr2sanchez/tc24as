@@ -13,14 +13,8 @@ export class CallService {
   }
 
   public call(adminName: string, adminPhone: string, providerPhone: string) {
-    return this.http.get(this.globalService.apiHost + '/call',
-      {
-        params: {
-          adminName,
-          adminPhone,
-          providerPhone
-        }
-      }
-    )
+
+    return this.http.get(this.globalService.apiHost + '/call?adminName='+adminName+'&adminPhone='+encodeURIComponent(adminPhone)+'&providerPhone='+encodeURIComponent(providerPhone)
+    );
   }
 }

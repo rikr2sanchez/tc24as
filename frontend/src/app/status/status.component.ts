@@ -1,15 +1,16 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import { MatchedProvider } from '../model/matched_provider';
+import { MatchedProviderService } from '../model/matched_provider.service';
 
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.scss']
 })
-export class StatusComponent implements OnInit {
+export class StatusComponent implements OnInit, AfterViewInit {
 
-  @Input() idx;
-  @Output() idxo =  new EventEmitter();
+  @Input() mp: MatchedProvider;
 
   contactingLogo: SafeHtml;
   talkedLogo: SafeHtml;
@@ -19,7 +20,7 @@ export class StatusComponent implements OnInit {
 
   options = new Map<string, string>([]);
 
-  constructor(sanitizer: DomSanitizer) {
+  constructor(sanitizer: DomSanitizer, private mpService: MatchedProviderService) {
     this.contactingLogo = sanitizer.bypassSecurityTrustUrl('assets/img/Contacting 0.svg');
     this.scheduledLogo = sanitizer.bypassSecurityTrustUrl( 'assets/img/Assessment scheduled.svg');
     this.talkedLogo = sanitizer.bypassSecurityTrustUrl('assets/img/Talked to the client.svg');
@@ -40,36 +41,97 @@ export class StatusComponent implements OnInit {
   icon = this.scheduledLogo;
 
   ngOnInit(): void {
-    console.log(this.contactingLogo);
+
+  }
+
+  ngAfterViewInit() {
+
+    switch (this.mp.status){
+      case 0: {
+        this.selected = 'contacting';
+        this.icon = this.contactingLogo;
+        break;
+      }
+      case 1 : {
+        this.selected = 'talked';
+        this.icon = this.scheduledLogo;
+        break;
+      }
+      case 2 : {
+        this.selected = 'scheduled';
+        this.icon = this.talkedLogo;
+        break;
+      }
+      case 3 : {
+        this.selected = 'signed';
+        this.icon = this.signedLogo;
+        break;
+      }
+      case 4 : {
+        this.selected = 'cancel';
+        this.icon = this.cancelLogo;
+        break;
+      }
+    }
   }
 
   setSelected(s: string): void {
     this.selected = s;
-    // this.tss.setStatus(s);
     switch (s){
       case 'contacting': {
-        this.icon = this.contactingLogo;
-        this.notifyRedTr(-1);
+        this.mp.status = 0;
+        this.mpService.updateMatchedProviderById(this.mp).subscribe(response => {
+            this.icon = this.contactingLogo;
+            console.log(response);
+        },
+          error => {
+            console.log('STATUS NOT UPDATED');
+          });
+
         break;
       }
       case 'talked' : {
-        this.icon = this.talkedLogo;
-        this.notifyRedTr(-1);
+        this.mp.status = 1;
+        this.mpService.updateMatchedProviderById(this.mp).subscribe(response => {
+            this.icon = this.talkedLogo;
+            console.log(response);
+          },
+          error => {
+            console.log('STATUS NOT UPDATED');
+          });
         break;
       }
       case 'scheduled' : {
-        this.icon = this.scheduledLogo;
-        this.notifyRedTr(-1);
+        this.mp.status = 2;
+        this.mpService.updateMatchedProviderById(this.mp).subscribe(response => {
+            this.icon = this.scheduledLogo;
+            console.log(response);
+          },
+          error => {
+            console.log('STATUS NOT UPDATED');
+          });
         break;
       }
       case 'signed' : {
-        this.icon = this.signedLogo;
-        this.notifyRedTr(-1);
+        this.mp.status = 3;
+        this.mpService.updateMatchedProviderById(this.mp).subscribe(response => {
+            this.icon = this.contactingLogo;
+            console.log(response);
+          },
+          error => {
+            console.log('STATUS NOT UPDATED');
+          });
         break;
       }
       case 'cancel' : {
-        this.icon = this.cancelLogo;
-        this.notifyRedTr(1);
+        this.mp.status = 4;
+        this.mpService.updateMatchedProviderById(this.mp).subscribe(response => {
+            this.icon = this.contactingLogo;
+            console.log(response);
+          },
+          error => {
+            console.log('STATUS NOT UPDATED');
+          });
         break;
       }
     }
@@ -83,9 +145,5 @@ export class StatusComponent implements OnInit {
     return this.options.get(s);
   }
 
-  notifyRedTr(neg: number): void {
-
-    this.idxo.emit(neg * this.idx);
-  }
 
 }

@@ -39,26 +39,15 @@ export class MpTableComponent implements OnInit, AfterViewInit{
 
   }
 
-  setCanceled(i: number): void {
-    const el = document.getElementById('tr' + (i > 0 ? i : -1 * i));
-    if (i < 0){
-      const idx = -1 * i;
-      if (idx % 2 === 0 ){
-        el.style.background = 'white';
-      }else{
-        el.style.background = '#f4f7f9';
-      }
-    } else {
-      el.style.background = '#fbe8ec';
-    }
-  }
-
   callMatchedProvider(mp: MatchedProvider) {
-    this.callService.call(this.me.username, this.me.phone_number, mp.phone).subscribe(data => {
+
+    this.callService.call(this.me.username, this.me.phone_number, mp.phone)
+    .subscribe(data => {
       console.log('CALL OK !');
     },error => {
       console.log('CALL ERROR');
       }
     )
   }
+
 }
