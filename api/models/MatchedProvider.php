@@ -97,6 +97,7 @@ class MatchedProvider extends \yii\db\ActiveRecord
         return [
             ['type', 'string'],
             ['name', 'required'],
+            ['name', 'string'],
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
