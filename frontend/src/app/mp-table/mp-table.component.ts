@@ -4,6 +4,10 @@ import { MatchedProviderService } from '../model/matched_provider.service';
 import { MatchedProvider } from '../model/matched_provider';
 import { MatchedProviderList } from '../model/matched_provider-list';
 import { Observable } from 'rxjs';
+import { CallService } from '../model/call.service';
+import { UserDataService } from '../model/user-data.service';
+import { UserService } from '../model/user.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-mp-table',
@@ -14,10 +18,20 @@ export class MpTableComponent implements OnInit, AfterViewInit{
 
   mplist$: Observable<MatchedProviderList>;
 
-  constructor(@Inject(DOCUMENT) document, private mpservice: MatchedProviderService) { }
+  me: User;
+
+  constructor(@Inject(DOCUMENT) document,
+              private mpservice: MatchedProviderService,
+              private callService: CallService,
+              public userService: UserService,
+              private userDataService: UserDataService
+  ) { }
 
 
   ngOnInit(): void {
+    this.userDataService.getMe().subscribe(user => {
+      this.me = user;
+    })
     this.mplist$ =  this.mpservice.getAllMatchedProviders();
   }
 
@@ -39,4 +53,12 @@ export class MpTableComponent implements OnInit, AfterViewInit{
     }
   }
 
+  callMatchedProvider(mp: MatchedProvider) {
+    this.callService.call(this.me.username, this.me.phone_number, mp.phone).subscribe(data => {
+      console.log('CALL OK !');
+    },error => {
+      console.log('CALL ERROR');
+      }
+    )
+  }
 }

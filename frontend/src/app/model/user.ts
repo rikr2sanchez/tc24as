@@ -3,6 +3,7 @@
 export class User {
   id: number;
   username: string;
+  phone_number: string;
   email: string;
   password: string;
   last_login_at: string;
