@@ -70,9 +70,8 @@ $config = [
 //            'enableStrictParsing' => true,
             'rules' => [
                 'ping' => 'site/ping',
-                ['class' => 'yii\rest\UrlRule',
-                    'controller' => 'v1/call',
-                ],
+                'call' => 'v1/call/index',
+                'twilio' => 'v1/twilio/index',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/user',
@@ -150,39 +149,7 @@ $config = [
             ]
         ],
         'response' => [
-            'class' => 'yii\web\Response',
-            'on beforeSend' => function ($event) {
-                $response = $event->sender;
-
-                if ($response->format == 'xml') {
-                    return $response;
-                }
-
-                if ($response->format == 'html') {
-                    return $response;
-                }
-
-                $responseData = $response->data;
-
-                if (is_string($responseData) && json_decode($responseData)) {
-                    $responseData = json_decode($responseData, true);
-                }
-
-                if ($response->statusCode >= 200 && $response->statusCode <= 299) {
-                    $response->data = [
-                        'success' => true,
-                        'status' => $response->statusCode,
-                        'data' => $responseData,
-                    ];
-                } else {
-                    $response->data = [
-                        'success' => false,
-                        'status' => $response->statusCode,
-                        'data' => $responseData,
-                    ];
-                }
-                return $response;
-            },
+            'class' => 'yii\web\Response'
         ]
     ],
     'modules' => [
