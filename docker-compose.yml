@@ -28,9 +28,6 @@ services:
       - internal
     env_file:
       - .env
-    ports: 
-      - 8888:80
-      - 8889:9000
     # volumes:
     #   - ./api:/srv
 
