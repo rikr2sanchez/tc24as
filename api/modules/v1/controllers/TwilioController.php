@@ -8,6 +8,8 @@ use Twilio\TwiML\VoiceResponse;
 
 class TwilioController extends Controller
 {
+    public $enableCsrfValidation = false;
+
     public function actionIndex() {
 
         $request = \Yii::$app->request;
