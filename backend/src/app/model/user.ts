@@ -2,6 +2,7 @@ export class User {
   id: number;
   row_num: number;
   username: string;
+  phone_number: string;
   email: string;
   password: string;
   last_login_at: string;

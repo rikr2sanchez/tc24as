@@ -49,6 +49,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
           ])
         ],
         email: ['', Validators.compose([Validators.required, CustomValidators.email])],
+        phone_number: ['', Validators.compose([Validators.required])],
         password: ['', Validators.compose([Validators.minLength(6)])],
         confirmed_at: ['', Validators.compose([])],
         blocked_at: ['', Validators.compose([])],
@@ -84,6 +85,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.formErrors = {
       username: { valid: true, message: '' },
       email: { valid: true, message: '' },
+      phone_number: { valid: true, message: '' },
       password: { valid: true, message: '' },
       confirmed_at: { valid: true, message: '' },
       blocked_at: { valid: true, message: '' },
@@ -125,6 +127,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.user = new User();
     this.user.username = '';
     this.user.email = '';
+    this.user.phone_number = '';
     this.user.password = '';
     this.user.confirmed_at = '';
     this.user.blocked_at = '';

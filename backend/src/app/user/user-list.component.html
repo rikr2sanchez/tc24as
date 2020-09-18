@@ -24,6 +24,7 @@
           <th class="text-center">#</th>
           <th>Username</th>
           <th>Email Address<br />(Confirmed At)</th>
+          <th>Phone Number</th>
           <th width="15%" class="text-center">Last Login</th>
           <th width="15%" class="text-center">Status<br />(Last Updated At)</th>
           <th width="20%" class="text-center">Functions</th>
@@ -50,6 +51,9 @@
                 >({{ user.confirmed_at | amFromUnix | amTimeAgo }})</span
               >
             </p>
+          </td>
+          <td>
+            {{ user.phone_number }}
           </td>
           <td class="text-center">
             <span *ngIf="user.last_login_ip == null" class="help-text">Never Logged In</span>
