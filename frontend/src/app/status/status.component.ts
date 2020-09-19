@@ -54,12 +54,12 @@ export class StatusComponent implements OnInit, AfterViewInit {
       }
       case 1 : {
         this.selected = 'talked';
-        this.icon = this.scheduledLogo;
+        this.icon = this.talkedLogo;
         break;
       }
       case 2 : {
         this.selected = 'scheduled';
-        this.icon = this.talkedLogo;
+        this.icon = this.scheduledLogo;
         break;
       }
       case 3 : {
