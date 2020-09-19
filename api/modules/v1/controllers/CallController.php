@@ -27,7 +27,7 @@ class CallController extends Controller
 
         $provider_phone_number = $request->get('providerPhone');
 
-        $twiml_url = 'https://143.110.146.230//api/twilio?name='.$admin_name.'&providerPhone='.urlencode($provider_phone_number);
+        $twiml_url = 'https://143.110.146.230/api/twilio?name='.$admin_name.'&providerPhone='.urlencode($provider_phone_number);
 
         $client = new Client($sid, $token);
 
