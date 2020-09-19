@@ -2,7 +2,7 @@
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngIf="router.url === '/matched-providers'">
-        <a class="nav-link mt-1 mr-4" href="/">
+        <a class="nav-link mt-1 mr-4" href="#/">
           <div class="row">
             <div class="col align-content-center" style="max-width: 20px">
               <img src="assets/img/Back%201.svg">
@@ -55,22 +55,6 @@
           </div>
         </a>
       </li>
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="#">-->
-<!--          <div class="row">-->
-<!--            <div class="col ml-2 align-content-center" style="max-width: 20px">-->
-<!--              <div class="align-middle">-->
-<!--                <img src="assets/img/Fulfillment%20KPIs.svg">-->
-<!--              </div>-->
-
-<!--            </div>-->
-
-<!--            <div class="col" style="max-width: 150px;">-->
-<!--              <span class="align-middle fkpi">Fulfillment KPIs</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </a>-->
-<!--      </li>-->
 
     </ul>
   </div>
@@ -82,7 +66,7 @@
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#/account">
           <div class="row" *ngIf="user">
             <div class="col mr-2" style="max-width: 150px">
               <span class="fkpi">{{user.email}}</span>
@@ -93,7 +77,7 @@
           </div>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!user">
         <a class="nav-link" href="#/login">
           <div class="row">
             <div class="col mr-2" style="max-width: 150px">
@@ -103,7 +87,7 @@
           </div>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!user">
         <a class="nav-link" href="#/signup">
           <div class="row">
             <div class="col mr-2" style="max-width: 150px">
