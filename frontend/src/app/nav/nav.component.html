@@ -1,29 +1,30 @@
-<nav class="navbar navbar-expand-sm navbar-light">
+<nav class="navbar navbar-expand-sm navbar-light border-bottom">
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="router.url === '/matched-providers'">
         <a class="nav-link mt-1 mr-4" href="/">
           <div class="row">
-            <div class="col align-content-center" style="max-width: 20px" *ngIf="router.url === '/matched-providers'">
+            <div class="col align-content-center" style="max-width: 20px">
               <img src="assets/img/Back%201.svg">
             </div>
-            <div class="col" style="max-width: 100px;" *ngIf="router.url === '/matched-providers'">
-              <span class="align-middle">BACK</span>
+<!--             -->
+            <div class="col" style="max-width: 100px;" >
+            <span class="align-middle">BACK</span>
             </div>
           </div>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="router.url === '/matched-providers'">
         <a class="nav-link">
           <div class="row">
-            <div class="col" style="max-width: 115px" *ngIf="router.url === '/matched-providers'">
+            <div class="col" style="max-width: 115px">
               <div class="row">
                 <input class="form-control" style="max-width: 115px; height: 35px" type="text" placeholder="Go to case ID#">
               </div>
 
             </div>
 
-            <div class="col" style="max-width: 40px" *ngIf="router.url === '/matched-providers'">
+            <div class="col" style="max-width: 40px">
               <div class="row">
                 <img src="assets/img/Go.svg">
               </div>
@@ -31,19 +32,45 @@
           </div>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
+      <li class="nav-item" *ngIf="router.url === '/matched-providers'">
+        <a class="nav-link mt-1 ml-4" href="/">
           <div class="row">
-            <div class="col ml-2 align-content-center" style="max-width: 20px" *ngIf="router.url === '/matched-providers'">
+            <div class="col align-content-center" style="max-width: 20px">
               <img src="assets/img/Fulfillment%20KPIs.svg">
             </div>
-
-            <div class="col" style="max-width: 150px;" *ngIf="router.url === '/matched-providers'">
+            <!--            *ngIf="router.url === '/matched-providers'" -->
+            <div class="col" style="max-width: 150px;" >
               <span class="align-middle fkpi">Fulfillment KPIs</span>
             </div>
           </div>
         </a>
       </li>
+      <li class="nav-item" *ngIf="['/login', '/signup'].includes(router.url)">
+        <a class="nav-link ml-4" href="#/">
+          <div class="row">
+            <!--            *ngIf="router.url === '/matched-providers'" -->
+            <div class="col" style="max-width: 150px;" >
+              <span class="align-middle fkpi">Home</span>
+            </div>
+          </div>
+        </a>
+      </li>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="#">-->
+<!--          <div class="row">-->
+<!--            <div class="col ml-2 align-content-center" style="max-width: 20px">-->
+<!--              <div class="align-middle">-->
+<!--                <img src="assets/img/Fulfillment%20KPIs.svg">-->
+<!--              </div>-->
+
+<!--            </div>-->
+
+<!--            <div class="col" style="max-width: 150px;">-->
+<!--              <span class="align-middle fkpi">Fulfillment KPIs</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </a>-->
+<!--      </li>-->
 
     </ul>
   </div>
@@ -63,6 +90,26 @@
             <div class="col mr-3" style="max-width: 10px" >
               <img src="assets/img/Dropdown.svg">
             </div>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#/login">
+          <div class="row">
+            <div class="col mr-2" style="max-width: 150px">
+              <span class="fkpi">Login</span>
+            </div>
+
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#/signup">
+          <div class="row">
+            <div class="col mr-2" style="max-width: 150px">
+              <span class="fkpi">Sign up</span>
+            </div>
+
           </div>
         </a>
       </li>

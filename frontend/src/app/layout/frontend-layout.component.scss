@@ -11,7 +11,9 @@ span {
   color: $nav-item-labels;
 }
 
-
+.tc24bg {
+  background-color: $bg;
+}
 
 input:focus {
   box-shadow: none;

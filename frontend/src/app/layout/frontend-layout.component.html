@@ -1,26 +1,35 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col" style="height: 100vh; max-width: 72px">
+  <div class="row h-100">
+
+    <div class="col" style="max-width: 72px">
       <app-nav-left></app-nav-left>
     </div>
-    <div class="col px-0">
-    <app-nav></app-nav>
 
-        <div class="row mx-0" style="background: #ebeff4; height: calc(100% - 72px)">
-          <div class="col px-1">
+    <div class="col">
+
+      <div class="d-flex flex-column h-100 ">
+
+          <app-nav style="margin-left: -15px; margin-right: -15px"></app-nav>
+
+
+        <div class="row h-100 px-0">
+          <div class="col tc24bg">
             <router-outlet></router-outlet>
           </div>
-
-<!--  <footer class="pt-4 my-md-5 pt-md-5 border-top">-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 col-md">-->
-<!--        <img class="mb-2" src="assets/img/TrueCare24_logo.svg" alt="" width="24" />-->
-<!--        <small class="d-block mb-3 text-muted">&copy; {{ today | amDateFormat: 'Y' }}</small>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </footer>-->
-
         </div>
+
+      </div>
+
+
+
+<!--  -->
+<!--      <div class="row mx-0" style="background: #ebeff4">-->
+
+<!--        <div class="col px-1">-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--      -->
+    </div>
   </div>
-</div>
 </div>
