@@ -55,6 +55,16 @@
           </div>
         </a>
       </li>
+      <li class="nav-item" *ngIf="router.url !== '/matched-providers'">
+        <a class="nav-link ml-4" href="#/matched-providers">
+          <div class="row">
+            <!--            *ngIf="router.url === '/matched-providers'" -->
+            <div class="col" style="max-width: 150px;" >
+              <span class="align-middle fkpi">Providers</span>
+            </div>
+          </div>
+        </a>
+      </li>
 
     </ul>
   </div>
