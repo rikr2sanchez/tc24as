@@ -5,8 +5,7 @@ import { Router, RouterState, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-frontend',
-  templateUrl: './frontend-layout.component.html',
-  styleUrls: ['./frontend-layout.component.scss']
+  templateUrl: './frontend-layout.component.html'
 })
 export class FrontendLayoutComponent implements OnInit, AfterViewChecked {
   public userData: any = {};

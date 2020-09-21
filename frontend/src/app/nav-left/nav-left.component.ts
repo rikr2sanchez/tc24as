@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-left',
-  templateUrl: './nav-left.component.html',
-  styleUrls: ['./nav-left.component.scss']
+  templateUrl: './nav-left.component.html'
 })
 export class NavLeftComponent implements OnInit {
 

@@ -3,3 +3,265 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import 'custom';
 
+.nav-left {
+  background: $nav-left-bg;
+}
+
+.nav-item > div > div > label {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: small;
+}
+
+.up-nav {
+  border-bottom: 1px solid #e1e5ea;
+}
+
+span {
+  font-family: 'Lato', sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  color: $nav-item-labels;
+}
+
+.tc24bg {
+  background-color: $bg;
+}
+
+input:focus {
+  box-shadow: none;
+}
+
+.fkpi {
+  font-family: 'Lato', sans-serif;
+  font-size: medium;
+  font-weight: normal;
+  color: $nav-label-text;
+}
+
+.status-btn {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  width: auto;
+  height: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  align-content: center;
+}
+
+.dropdown-item:hover {
+  border-radius: 5px;
+  background-color: $select-item-hover;
+}
+
+.dropdown-item:active {
+  background-color: $select-item-hover;
+}
+
+label {
+  font-family: 'Lato', sans-serif;
+  font-size: medium;
+  font-weight: normal;
+  color: $nav-label-text;
+}
+
+
+.menu-btn:hover {
+  cursor: pointer;
+}
+
+.menu-btn {
+  width: 10px;
+  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: url("../assets/img/kebab menu.png") no-repeat;
+}
+
+.menu-btn:hover {
+  background: url("../assets/img/kebab menu hover.png") no-repeat;
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  width: auto;
+  height: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  align-content: center;
+}
+
+.dropdown-item:hover {
+  border-radius: 5px;
+  background: white;
+}
+
+.dropdown-item:hover > label {
+  color: $aqua;
+}
+
+.modal-title {
+  font-family: 'Lato', sans-serif;
+  font-size: medium;
+  font-weight: 700;
+  color: $nav-label-text;
+}
+
+
+.fbtext {
+  width: 100%;
+  height: 120px;
+  border-radius: 5px;
+}
+
+.x > span {
+  font-family: 'Lato', sans-serif;
+  font-size: large;
+  font-weight: 700;
+  color: $nav-label-text;
+}
+
+textarea {
+  resize: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 10pt;
+  font-weight: 400;
+  color: $table-header-text;
+  background: $feedback-textareabg;
+  border-color: $feedback-textareaborderd;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+
+.up-nav {
+  border-bottom: 1px solid #e1e5ea;
+}
+
+span {
+  font-family: 'Lato', sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  color: $nav-item-labels;
+}
+
+.form-control {
+  font-family: 'Lato', sans-serif;
+  font-size: small;
+  font-weight: normal;
+  color: $nav-item-labels;
+  border-radius: 5px 0 0 5px;
+}
+
+input:focus {
+  box-shadow: none;
+}
+
+.fkpi {
+  font-family: 'Lato', sans-serif;
+  font-size: medium;
+  font-weight: normal;
+  color: $nav-label-text;
+}
+
+
+.panel {
+  border-radius: 5px;
+}
+
+.table-title {
+  font-family: 'Lato', sans-serif;
+  font-size: large;
+  font-weight: bold;
+  color: $nav-label-text;
+}
+
+
+th {
+  font-family: 'Lato', sans-serif;
+  font-size: 10pt;
+  font-weight: 400;
+  color: $table-header-text;
+}
+
+td {
+  height: 50px;
+  font-family: 'Lato', sans-serif;
+  font-size: 10pt;
+  font-weight: 400;
+  color: $nav-label-text;
+}
+
+tr:nth-child(odd) {background-color: $table-dark-row;}
+
+.nametd {
+  font-family: 'Lato', sans-serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: $nav-label-text;
+}
+
+.img-wrap {
+  position: relative;
+  width: 60px;
+}
+
+.chat-btn-txt {
+  position: absolute;
+  left: 0;
+  width: 60px;
+  margin-bottom: 0;
+  height: 30px;
+  text-align: center;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 10pt;
+  line-height: 30px;
+}
+
+.chat-btn-txt:hover {
+  background-color: rgba(0,0,0, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.status-td {
+  cursor: pointer;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even) {
+  background-color: $table-dark-row;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd) {
+  background-color: white;
+}
+
+.table-striped>tbody>tr.canceled>td,
+.table-striped>tbody>tr.canceled {
+  background-color: $table-cancel-row;
+}
+

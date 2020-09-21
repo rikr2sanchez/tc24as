@@ -11,8 +11,7 @@ import { User } from '../model/user';
 
 @Component({
   selector: 'app-mp-table',
-  templateUrl: './mp-table.component.html',
-  styleUrls: ['./mp-table.component.scss']
+  templateUrl: './mp-table.component.html'
 })
 export class MpTableComponent implements OnInit, AfterViewInit{
 
